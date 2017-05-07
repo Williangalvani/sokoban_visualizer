@@ -105,7 +105,11 @@ function down()
     }
 }
 
-
+function done()
+{
+    console.log("done!");
+    clearInterval(timer);
+}
 
 function drawMatrix()
 {
@@ -139,9 +143,12 @@ String.prototype.replaceAll = function(target, replacement) {
 
 function processData()
 {
+    movesf = eval($('#moves').val());
+    console.log(movesf);
     targets = $('#targets').val().match(/[^[\]]+(?=])/g);
     console.log(targets);
-    eval($('#start'));
+    eval($('#start').val());
+
 	var text = $('#textInput').val();
     matrix = eval($('#Matrix').val());
     console.log(matrix);
@@ -151,10 +158,8 @@ function processData()
 	for (var i in splited)
 	{
 		var int = parseInt(splited[i]);
-		if( int > 0)
-		{
-			indexes.push(int-1);
-		}
+			indexes.push(int);
+
 		
 	}
 	console.log(indexes);
@@ -173,7 +178,7 @@ function processData()
         try
         {
 
-           var dir = (indexes[moveIndex]%4);
+           var dir = (indexes[moveIndex]);
            console.log(dir)
            movesf[dir]();
            moveIndex++;
