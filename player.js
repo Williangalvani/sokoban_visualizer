@@ -4,6 +4,8 @@ var step = fullsize / 7;
 
 var x = 1;
 var y = 1;
+var x1 =1;
+var y1 =1;
 
 var timer = null;
 var moveIndex = 0;
@@ -82,6 +84,78 @@ function down() {
         alert("bad move?");
     }
 }
+
+
+//robô 2
+
+
+function right1() {
+    if (matrix[y1][x1 + 1] == 0) {
+        matrix[y1][x1 + 1] = 3;
+        matrix[y1][x1] = 0;
+        x1 = x1 + 1;
+    }
+    else if (matrix[y1][x1 + 1] == 2 && matrix[y1][x1 + 2] == 0) {
+        matrix[y1][x1] = 0;
+        matrix[y1][x1 + 1] = 3;
+        matrix[y1][x1 + 2] = 2;
+        x1 = x1 + 1;
+    } else {
+        alert("bad move?");
+    }
+
+}
+
+function left1() {
+    if (matrix[y1][x1 - 1] == 0) {
+        matrix[y1][x1 - 1] = 3;
+        matrix[y1][x1] = 0;
+        x1 = x1 - 1;
+    }
+    else if (matrix[y1][x1 - 1] == 2 && matrix[y1][x1 - 2] == 0) {
+        matrix[y1][x1] = 0;
+        matrix[y1][x1 - 1] = 3;
+        matrix[y1][x1 - 2] = 2;
+        x1 = x1 - 1;
+    } else {
+        alert("bad move?");
+    }
+}
+
+function up1() {
+    if (matrix[y1 - 1][x1] == 0) {
+        matrix[y1 - 1][x1] = 3;
+        matrix[y1][x1] = 0;
+        y1 = y1 - 1;
+    }
+    else if (matrix[y1 - 1][x1] == 2 && matrix[y1 - 2][x1] == 0) {
+        matrix[y1][x1] = 0;
+        matrix[y1 - 1][x1] = 3;
+        matrix[y1 - 2][x1] = 2;
+        y1 = y1 - 1;
+    } else {
+        alert("bad move?");
+    }
+}
+
+function down1() {
+    if (matrix[y1 + 1][x1] == 0) {
+        matrix[y1 + 1][x1] = 3;
+        matrix[y1][x1] = 0;
+        y1 = y1 + 1;
+    }
+    else if (matrix[y1 + 1][x1] == 2 && matrix[y1 + 2][x1] == 0) {
+        matrix[y1][x1] = 0;
+        matrix[y1 + 1][x1] = 3;
+        matrix[y1 + 2][x1] = 2;
+        y1 = y1 + 1;
+    } else {
+        alert("bad move?");
+    }
+}
+
+
+
 
 function done() {
     console.log("done!");
