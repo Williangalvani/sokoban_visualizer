@@ -1,0 +1,61 @@
+<html>
+<body>
+
+<div>
+<p>
+Formato esperado:<br>
+<br>
+ordem das transicoes:<br>
+<br>
+0 : done<br>
+<br>
+1: "left"<br> 
+2: "right" <br>
+3: "down" <br>
+4: "up"<br>
+5: "push left" <br>
+6: "push right" <br>
+7: "push down" <br>
+8: "push up"<br>
+
+</p>
+<textarea rows="10" cols="30" id="start">
+x = 0;
+y = 0;
+</textarea>
+
+<textarea rows="10" cols="30" id="Matrix">
+[[1,1,1,1,1,1,1],
+[1,3,0,0,1,1,1],
+[1,0,2,2,0,0,1],
+[1,2,0,0,2,1,1],
+[1,0,0,1,0,0,1],
+[1,1,0,0,0,0,1],
+[1,1,1,1,1,1,1]]
+</textarea>
+
+<textarea rows="10" cols="30" id="targets">
+on visited[4][1] = true and visited[3][3] = true and visited[5][5] = true; to done
+</textarea>
+<br>
+Output do "selt -s":
+<br>
+<textarea rows="10" cols="120" id="textInput">
+play_1_t2 play_1_t1 play_1_t2 play_1_t2 play_1_t1 play_1_t1 play_1_t4 play_1_t3 play_1_t2 play_1_t2 play_1_t8 play_1_t2 play_1_t1 play_1_t3 play_1_t1 play_1_t1 play_1_t4 play_1_t6 play_1_t4 play_1_t3 play_1_t6 play_1_t6 play_1_t1 play_1_t1 play_1_t4 play_1_t4 play_1_t1 play_1_t2 play_1_t3 play_1_t3 play_1_t2 play_1_t2 play_1_t8 play_1_t3 play_1_t1 play_1_t1 play_1_t4 play_1_t4 play_1_t1 play_1_t7 play_1_t2 play_1_t3 play_1_t2 play_1_t2 play_1_t4 play_1_t5 play_1_t2 play_1_t3 play_1_t1 play_1_t1 play_1_t3 play_1_t2 play_1_t4 play_1_t4 play_1_t2 play_1_t3 play_1_t4 play_1_t1 play_1_t3 play_1_t2 play_1_t4 	play_1_t1 play_1_t3 play_1_t1 play_1_t3 play_1_t1 play_1_t8 play_1_t8 play_1_t3 play_1_t2 play_1_t2 play_1_t4 play_1_t2 play_1_t8 play_1_t2 play_1_t1 play_1_t3 play_1_t1 play_1_t3 play_1_t1 play_1_t1 play_1_t4 play_1_t6 play_1_t1 play_1_t3 play_1_t2 play_1_t2 play_1_t2 play_1_t4 play_1_t4 play_1_t2 play_1_t4 play_1_t0
+</textarea>
+<br>
+<button onClick="processData();">run</button>
+<br>
+
+</div>
+
+<div>
+<canvas id='batata'>
+
+
+</canvas>
+</div>
+<script src="jquery.js"></script>
+<script src="player.js"></script>
+</body>
+</html>
