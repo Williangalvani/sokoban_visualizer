@@ -188,12 +188,27 @@ function updateLink()
 {
 
     var location = window.location.pathname;
-    var link = location+'?moves='+encodeURIComponent($("#moves").val());
+    var link = 'https://williangalvani.github.io/sokoban_visualizer/?moves='+encodeURIComponent($("#moves").val());
     link = link +'&start='+encodeURIComponent($("#start").val());
     link = link +'&matrix='+encodeURIComponent($("#Matrix").val());
     link = link +'&targets='+encodeURIComponent($("#targets").val());
     link = link +'&seq='+encodeURIComponent($("#textInput").val());
-    window.location = link;
+
+    data = JSON.stringify({"longUrl": link});
+    $.ajax({
+  url:"https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyCxihbSCV57kNuQfuEB3-GA7BDttwExw4I",
+  type:"POST",
+  data:data,
+  contentType:"application/json; charset=utf-8",
+  dataType:"json",
+  success: function( data ) {
+    var short = data['id'];
+    $( "#link" ).text( data['id'] );
+    }
+});
+
+
+    //window.location = link;
 }
 
 
