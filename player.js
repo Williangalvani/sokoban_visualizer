@@ -21,6 +21,7 @@ function choose(choices) {
 
 
 function right() {
+    console.log("1_right");
     if (matrix[y][x + 1] == 0) {
         matrix[y][x + 1] = 3;
         matrix[y][x] = 0;
@@ -38,6 +39,7 @@ function right() {
 }
 
 function left() {
+    console.log("1_left");
     if (matrix[y][x - 1] == 0) {
         matrix[y][x - 1] = 3;
         matrix[y][x] = 0;
@@ -54,6 +56,7 @@ function left() {
 }
 
 function up() {
+    console.log("1_up");
     if (matrix[y - 1][x] == 0) {
         matrix[y - 1][x] = 3;
         matrix[y][x] = 0;
@@ -70,6 +73,7 @@ function up() {
 }
 
 function down() {
+    console.log("1_down");
     if (matrix[y + 1][x] == 0) {
         matrix[y + 1][x] = 3;
         matrix[y][x] = 0;
@@ -90,6 +94,7 @@ function down() {
 
 
 function right1() {
+    console.log("2_right");
     if (matrix[y1][x1 + 1] == 0) {
         matrix[y1][x1 + 1] = 3;
         matrix[y1][x1] = 0;
@@ -107,6 +112,8 @@ function right1() {
 }
 
 function left1() {
+
+    console.log("2_left");
     if (matrix[y1][x1 - 1] == 0) {
         matrix[y1][x1 - 1] = 3;
         matrix[y1][x1] = 0;
@@ -123,6 +130,7 @@ function left1() {
 }
 
 function up1() {
+    console.log("2_up");
     if (matrix[y1 - 1][x1] == 0) {
         matrix[y1 - 1][x1] = 3;
         matrix[y1][x1] = 0;
@@ -139,6 +147,7 @@ function up1() {
 }
 
 function down1() {
+    console.log("2_down");
     if (matrix[y1 + 1][x1] == 0) {
         matrix[y1 + 1][x1] = 3;
         matrix[y1][x1] = 0;
@@ -190,9 +199,8 @@ String.prototype.replaceAll = function (target, replacement) {
 
 function processData() {
     movesf = eval($('#moves').val());
-    console.log(movesf);
     targets = $('#targets').val().match(/[^[\]]+(?=])/g);
-    console.log(targets);
+
     eval($('#start').val());
 
     var text = $('#textInput').val();
@@ -223,7 +231,6 @@ function processData() {
         try {
 
             var dir = (indexes[moveIndex]);
-            console.log(dir)
             movesf[dir]();
             moveIndex++;
             drawMatrix();
