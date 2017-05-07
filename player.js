@@ -124,7 +124,7 @@ function processData() {
     var text = $('#textInput').val();
     matrix = eval($('#Matrix').val());
     console.log(matrix);
-    var splited = text.replaceAll("play_1_t", "").replace(/ +(?= )/g, '').split(" ");
+    var splited = text.replaceAll("play_1_t", "").replaceAll("_t", "").replace(/ +(?= )/g, '').split(" ");
     console.log(JSON.stringify(splited));
 
     for (var i in splited) {
