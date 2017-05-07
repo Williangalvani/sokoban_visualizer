@@ -198,11 +198,13 @@ String.prototype.replaceAll = function (target, replacement) {
 };
 
 function processData() {
+    indexes = [];
+    var moveIndex = 0;
+    clearInterval(timer);
+
     movesf = eval($('#moves').val());
     targets = $('#targets').val().match(/[^[\]]+(?=])/g);
-
     eval($('#start').val());
-
     var text = $('#textInput').val();
     matrix = eval($('#Matrix').val());
     console.log(matrix);
