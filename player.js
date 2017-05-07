@@ -8,6 +8,7 @@ var step = fullsize/7;
 var x = 1;
 var y = 1;
 
+var timer = null;
 var moveIndex = 0;
 var indexes = [];
 var matrix = null;
@@ -165,7 +166,7 @@ function processData()
         console.log(y, x);
 	}
 
-    var myVar = setInterval(function(){ myTimer() }, 200);
+    timer = setInterval(function(){ myTimer() }, 200);
 
     function myTimer() 
     {
@@ -182,7 +183,7 @@ function processData()
         catch(err)
         {
             console.log(err);   
-            clearInterval(myVar);
+            clearInterval(timer);
            
         }
     }
