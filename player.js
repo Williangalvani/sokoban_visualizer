@@ -170,6 +170,55 @@ $('#textInput').bind('input propertychange', function () {
     processData();
 });
 
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+
+function updateLink()
+{
+
+    var location = window.location.pathname;
+    var link = location+'?moves='+encodeURIComponent($("#moves").val());
+    link = link +'&start='+encodeURIComponent($("#start").val());
+    link = link +'&matrix='+encodeURIComponent($("#Matrix").val());
+    link = link +'&targets='+encodeURIComponent($("#targets").val());
+    link = link +'&seq='+encodeURIComponent($("#textInput").val());
+    window.location = link;
+}
+
+
+var params = getQueryParams(window.location.search);
+
+if ('seq' in params)
+{
+    $("#textInput").val(params['seq']);
+}
+if ('start' in params)
+{
+    $("#start").val(params['start']);
+}
+if ('matrix' in params)
+{
+    $("#Matrix").val(params['matrix']);
+}
+if ('targets' in params)
+{
+    $("#targets").val(params['targets']);
+}
+if ('moves' in params)
+{
+    $("#moves").val(params['moves']);
+}
 
 var canvas = document.getElementById('batata');
 canvas.height = 360;
